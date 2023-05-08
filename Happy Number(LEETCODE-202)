@@ -1,0 +1,22 @@
+class Solution {
+    public boolean isHappy(int n) {
+        Set <Integer> s = new HashSet<>();
+        int r,sqsum;
+        while(!s.contains(n))
+        {
+            s.add(n);
+            sqsum=0;
+            while(n!=0)
+            {
+                r=n%10;
+                sqsum+=r*r;
+                n=n/10;
+            }
+            if(sqsum==1)
+            return true;
+            else
+            n=sqsum;
+        }
+        return false;
+    }
+}
