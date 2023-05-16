@@ -1,0 +1,20 @@
+class Solution {
+    public String makeGood(String s) {
+        Stack <Character> stack = new Stack<>();
+        char chh='\0';
+        for(char ch:s.toCharArray())
+        {
+            if((!stack.isEmpty()) && Math.abs(ch-stack.peek())==32)
+            stack.pop();
+            else
+            stack.push(ch);
+        }
+        String ans="";
+        while(!stack.isEmpty())
+        {
+            ans+=stack.pop();
+        }
+        StringBuilder st = new StringBuilder(ans);
+        return st.reverse().toString();
+    }
+}
