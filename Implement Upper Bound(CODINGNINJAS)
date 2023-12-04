@@ -1,0 +1,22 @@
+public class Solution {
+    public static int upperBound(int []arr, int x, int n){
+        int ans=n;
+        int lb=0;
+        int ub=arr.length-1;
+        while(lb<=ub)
+        {
+            int mid=(lb+ub)/2;
+            if(arr[mid]>x)
+            {
+                ans=mid;
+                ub=mid-1;
+            }
+            else
+            {
+                lb=mid+1;
+            }
+        }
+        return ans;
+    }
+}
+    
