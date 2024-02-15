@@ -1,0 +1,13 @@
+public class Solution {
+    public static Node deleteLast(Node list){
+        if(list==null || list.next==null)
+          return null;
+        Node ptr=list;
+        while(ptr.next.next!=null)
+        {
+            ptr=ptr.next;
+        }
+        ptr.next=null;
+        return list;
+    }
+}
