@@ -1,0 +1,18 @@
+class Solution {
+    long MOD=1000000007;
+    public int countGoodNumbers(long n) {
+        long eve=myPow(5,(n+1)/2)%MOD;
+        long od=myPow(4,n/2)%MOD;
+        return (int)((eve*od)%MOD);
+    }
+
+     public long myPow(long x, long n) {
+        if(n==0)
+        return 1;
+        long subpop=myPow(x,n/2);
+        if(n%2==0)
+        return (subpop*subpop)%MOD;
+        else
+        return (x*subpop*subpop)%MOD;
+}
+}
