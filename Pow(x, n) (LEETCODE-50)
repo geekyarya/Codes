@@ -1,0 +1,32 @@
+class Solution {
+    public double myPow(double x, int n) {
+        if(n>=0)
+        {
+            return positive(x,n);
+        }
+        else
+        {
+            return negative(x,n);
+        }
+    }
+    public double positive(double x,int n)
+    {
+        if(n==0)
+        return 1;
+        double subpop=positive(x,n/2);
+        if(n%2==0)
+        return subpop*subpop;
+        else
+        return x*subpop*subpop;
+    }
+    public double negative(double x,int n)
+    {
+        if(n==-1)
+        return 1/x;
+        double subpop=positive(x,n/2);
+        if(n%2==0)
+        return (1/subpop)*(1/subpop);
+        else
+        return (1/x)*(1/subpop)*(1/subpop);
+    }
+}
