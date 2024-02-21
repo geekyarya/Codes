@@ -1,0 +1,27 @@
+import java.util.Stack;
+
+public class Solution {
+    
+	public static void reverseStack(Stack<Integer> stack) {
+		
+		if(stack.isEmpty())
+		return;
+		int temp=stack.pop();
+		reverseStack(stack);
+		insertAtLast(stack,temp);
+		
+	}
+	public static void insertAtLast(Stack<Integer> stack,int ele)
+	{
+		if(stack.isEmpty())
+		{
+		    stack.push(ele);
+		    return;
+		}
+
+	   int topele=stack.pop();
+	   insertAtLast(stack,ele);
+	   stack.push(topele);
+   return;
+	}
+}
