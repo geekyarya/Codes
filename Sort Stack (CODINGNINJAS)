@@ -1,0 +1,27 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+	public static Stack<Integer> sortStack(Stack<Integer> s) {
+			
+		if(s.isEmpty())
+		return s;
+
+		int temp=s.pop();
+		sortStack(s);
+		return insertatcorrectposition(s,temp);
+		
+	}
+
+	public static Stack<Integer> insertatcorrectposition(Stack<Integer> s,int temp)
+	{
+		if(s.isEmpty()||s.peek()<temp)
+		{
+			s.push(temp);
+			return s;
+		}
+		int ele=s.pop();
+		insertatcorrectposition(s,temp);
+		s.push(ele);
+		return s;
+	}
+}
