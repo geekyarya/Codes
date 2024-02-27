@@ -1,0 +1,19 @@
+public class Solution {
+    public static int[] bitManipulation(int num, int i){
+        int[] ans=new int[3];
+        int bitmask=1<<(i-1);
+        if((bitmask & num)==0)
+        ans[0]=0;
+        else
+        ans[0]=1;
+
+        int res=bitmask|num;
+        ans[1]=res;
+
+        int notbitmask=~bitmask;
+        int res2=notbitmask & num;
+        ans[2]=res2;
+
+        return ans;
+    }
+}
