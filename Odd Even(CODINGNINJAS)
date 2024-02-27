@@ -1,0 +1,8 @@
+public class Solution {
+    public static String oddEven(int N){
+        int bitmask=1<<0;
+        if((bitmask & N)==0)
+        return "even";
+        return "odd";
+    }
+}
