@@ -1,0 +1,14 @@
+public class Solution{
+    public static int countSetBits(int n) {
+        int c=0;
+        for(int i=1;i<=n;i++)
+        {
+            int num=i;
+            while(num>0){
+                c+=num%2;
+                num=num/2;
+            }
+        }
+        return c;
+    }
+}
