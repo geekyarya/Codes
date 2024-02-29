@@ -1,0 +1,13 @@
+public class Solution {
+    public static int flipBits(int A, int B){
+        int c=0;
+        int val=A^B;
+        while(val>0)
+        {
+            if((val&1)==1)
+                c++;
+            val>>=1;
+        }
+        return c;
+    }
+}
