@@ -1,0 +1,13 @@
+class Solution {
+    public int minBitFlips(int start, int goal) {
+        int c=0;
+        int interim=start^goal;
+        while(interim>0)
+        {
+            if((interim&1)==1)
+            c++;
+            interim>>=1;
+        }
+        return c;
+    }
+}
