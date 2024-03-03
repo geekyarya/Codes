@@ -1,0 +1,8 @@
+public class Solution{
+    public static int missingNumber(int n, int []arr){
+        int xor=0;
+        for(int nums:arr)
+        xor^=nums;
+        return xor;
+    }
+}
