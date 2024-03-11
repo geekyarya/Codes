@@ -1,0 +1,30 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution 
+{
+	public static int uniqueSubstrings(String input) 
+    {
+		int left=0,right=0,ans=0;
+		Set<Character> set=new HashSet();
+		while(right<input.length())
+		{
+			char ch=input.charAt(right);
+			if(set.add(ch))
+			{
+				ans=Math.max(ans,right-left+1);
+				right++;
+			}
+			else
+			{
+				while(input.charAt(left)!=ch)
+				{
+					set.remove(input.charAt(left));
+					left++;
+				}
+				set.remove(ch);
+				left++;
+			}
+		}
+		return ans;
+	}
+}
