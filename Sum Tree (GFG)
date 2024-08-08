@@ -1,0 +1,25 @@
+class Solution {
+    boolean isum = true;  
+    
+    boolean isSumTree(Node root) {
+        helper(root);
+        return isum;
+    }
+
+    int helper(Node root) {
+        if (root == null)
+            return 0;
+
+        if (root.left == null && root.right == null)
+            return root.data;
+
+        int ldata = helper(root.left);
+        int rdata = helper(root.right);
+
+       
+        if (root.data != ldata + rdata)
+            isum = false;
+
+        return root.data + ldata + rdata;
+    }
+}
