@@ -1,0 +1,36 @@
+import java.util.*;
+
+class Solution {
+
+    void solve(List<Integer> candidates, int target, List<Integer> curr, int idx, List<List<Integer>> result) {
+        if (target < 0) {
+            return;
+        }
+        if (target == 0) {
+            result.add(new ArrayList<>(curr)); 
+            return;
+        }
+
+        for (int i = idx; i < candidates.size(); i++) {
+            if (i > idx && candidates.get(i).equals(candidates.get(i - 1))) {
+                continue; 
+            }
+
+            curr.add(candidates.get(i));
+            solve(candidates, target - candidates.get(i), curr, i + 1, result);
+            curr.remove(curr.size() - 1); 
+        }
+    }
+
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> curr = new ArrayList<>();
+        List<Integer> candidateList = new ArrayList<>();
+        for (int num : candidates) {
+            candidateList.add(num);
+        }
+        Collections.sort(candidateList);
+        solve(candidateList, target, curr, 0, result);
+        return result;
+    }
+}
