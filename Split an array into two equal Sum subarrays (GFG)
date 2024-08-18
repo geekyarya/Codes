@@ -1,0 +1,18 @@
+class Solution {
+    public boolean canSplit(int arr[]) {
+        int totalsum=0,targetsum=0,sum=0;
+        for(int num:arr){
+            totalsum+=num;
+        }
+        
+        if(totalsum%2==0)
+        targetsum=totalsum/2;
+        
+        for(int num:arr){
+            sum+=num;
+            if(sum==targetsum)
+            return true;
+        }
+        return false;
+    }
+}
