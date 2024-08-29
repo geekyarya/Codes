@@ -1,0 +1,28 @@
+class Solution {
+    public int findlen(Node slow, Node fast) {
+        int length = 1;
+        slow = slow.next;
+
+        while (slow != fast) {
+            slow = slow.next;
+            length++;
+        }
+        return length;
+    }
+
+    public int countNodesinLoop(Node head) {
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if (slow == fast) {
+                return findlen(slow, fast);
+            }
+        }
+
+        return 0;
+    }
+}
