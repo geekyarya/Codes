@@ -1,0 +1,50 @@
+//{ Driver Code Starts
+//Initial Template for Java
+
+import java.io.*;
+import java.util.*;
+
+class GFG
+{
+    public static void main(String args[])throws IOException
+    {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        while(t-- > 0)
+        {
+            String s;
+            s = sc.next();
+           
+            Solution ob = new Solution();
+            
+            System.out.println(ob.modify(s));    
+        }
+    }
+}
+// } Driver Code Ends
+
+
+//User function Template for Java
+
+class Solution
+{
+    String modify (String s)
+    {
+        Stack <Character> stack= new Stack<>();
+        
+        for(char ch:s.toCharArray()){
+            if(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u')
+            stack.push(ch);
+        }
+        
+        StringBuilder ans=new StringBuilder();
+        
+        for(char ch:s.toCharArray()){
+            if(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u')
+            ans.append(stack.pop());
+            else
+            ans.append(ch);
+        }
+        return ans.toString();
+    }
+}
