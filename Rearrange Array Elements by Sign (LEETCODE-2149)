@@ -1,0 +1,33 @@
+class Solution {
+    public int[] rearrangeArray(int[] nums) {
+        int p=0,n=0;
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]>0)
+            p++;
+            if(nums[i]<0)
+            n++;
+        }
+        
+        int[] pa=new int[p];
+        int[] na=new int[n];
+        int[] res=new int[p+n];
+        int j=0,k=0;
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]>0)
+            pa[j++]=nums[i];
+            else
+            na[k++]=nums[i];
+        }
+        
+        int s=0,t=0;
+        for(int i=0;i<nums.length;i++){
+            if(i%2==0){
+                res[i]=pa[s++];
+            }
+            else{
+                res[i]=na[t++];
+            }
+        }
+        return res;
+    }
+}
